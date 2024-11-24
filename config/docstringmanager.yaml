@@ -1,0 +1,30 @@
+functions:
+  function: |
+    Faz algo interessante com os números fornecidos.
+
+    Args:
+        x (int): Um número inteiro.
+        y (float): Um número decimal.
+
+    Returns:
+        float: O resultado da soma dos números fornecidos.
+
+    Raises:
+        ValueError: Se `x` for negativo.
+
+  other_function: |
+    Verifica se uma string é um palíndromo.
+
+    Args:
+        texto (str): A string a ser verificada.
+
+    Returns:
+        bool: True se a string for um palíndromo, False caso contrário.
+    
+classes:
+  MyClass: |
+    Representa uma entidade com atributos simples.
+
+    Attributes:
+        atributo1 (int): Um atributo inteiro.
+        atributo2 (str): Um atributo textual.
