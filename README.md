@@ -35,7 +35,7 @@ poetry config virtualenvs.in-project true
 Abra uma janela de terminal com comandos Git e digite:
 
 ```bash
-git clone https://github.com/pagueru/py-docstring-manager.git [NOVO_NOME_DO_PROJETO]
+git clone https://github.com/pagueru/py-default-repo [NOVO_NOME_DO_PROJETO]
 cd [NOVO_NOME_DO_PROJETO]
 ```
 
