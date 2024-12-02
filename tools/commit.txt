@@ -1,4 +1,4 @@
-feat: teste de utilizacao de commit_message.txt
+init: cria a estrutura inicial do projeto
 
-- Teste de topico 1
-- Teste de topico 2
+- Define estrutura de pastas e arquivos do projeto
+- Gerencia dependências, ambiente virtual e configurações do seu projeto Python usando Poetry

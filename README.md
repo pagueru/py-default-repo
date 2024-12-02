@@ -80,12 +80,11 @@ A estrutura básica de pastas do projeto é mostrada abaixo:
 │   │   └── __init__.py
 │   └── main.py
 ├── tools/
-│   ├── commit.txt
-│   └── template_commit.txt
+│   └── commit.txt
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── .python-version
-├── CONTRIBUTING.md
+├── COMMIT_GUIDELINES.md
 ├── NOTES.md
 ├── poetry.lock
 ├── pyproject.toml
