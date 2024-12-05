@@ -50,6 +50,6 @@ Para uma melhor organização do corpo do commit, utilize o arquivo `tools/commi
 
 ```text
 git add .
-git commit -F tools/template_commit.txt
+git commit -F tools/commit.txt
 git push
 ```
