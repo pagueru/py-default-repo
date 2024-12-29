@@ -7,11 +7,23 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-redbaron = "^0.9.2"
+python-dotenv = "^1.0.1"
 pyyaml = "^6.0.2"
-isort = "^5.13.2"
 
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+pylance = "^0.21.0"
+pylint = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint]
+disable = [
+    "logging-fstring-interpolation",
+    "missing-module-docstring",
+    "missing-function-docstring",
+    "import-error"
+]
