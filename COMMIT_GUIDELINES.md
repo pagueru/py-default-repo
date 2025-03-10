@@ -53,3 +53,6 @@ git add .
 git commit -F tools/commit.txt
 git push
 ```
+
+
+🚀 init: cria a estrutura inicial do projeto

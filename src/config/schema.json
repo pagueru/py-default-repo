@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "logging": {
+      "properties": {
+        "console": {
+          "properties": {
+            "level": {
+              "description": "N\u00edvel de logging para o console",
+              "enum": [
+                "DEBUG",
+                "INFO",
+                "WARNING",
+                "ERROR",
+                "CRITICAL"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "level"
+          ],
+          "type": "object"
+        },
+        "file": {
+          "properties": {
+            "enabled": {
+              "description": "Habilita ou desabilita o logging em arquivo",
+              "type": "boolean"
+            },
+            "level": {
+              "description": "N\u00edvel de logging para o arquivo",
+              "enum": [
+                "DEBUG",
+                "INFO",
+                "WARNING",
+                "ERROR",
+                "CRITICAL"
+              ],
+              "type": "string"
+            },
+            "path": {
+              "description": "Caminho para o arquivo de log",
+              "type": "string"
+            }
+          },
+          "required": [
+            "enabled",
+            "level",
+            "path"
+          ],
+          "type": "object"
+        },
+        "supress": {
+          "description": "Mensagens a serem suprimidas",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "file",
+        "console",
+        "supress"
+      ],
+      "type": "object"
+    },
+    "profile_mode": {
+      "description": "Modos dispon\u00edveis: debug | info",
+      "enum": [
+        "debug",
+        "info"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_mode",
+    "logging"
+  ],
+  "title": "Config",
+  "type": "object"
+}

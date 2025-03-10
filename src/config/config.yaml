@@ -1,0 +1,14 @@
+# Este é um arquivo de configuração YAML para um projeto Python.
+
+profile_mode: info  # Modos disponíveis: debug | info
+
+logging:
+  file:
+    enabled: true
+    level: DEBUG
+    path: logs/app.log
+  console:
+    level: INFO
+  supress: [
+    "pandas only supports SQLAlchemy connectable"
+  ]

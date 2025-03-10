@@ -178,3 +178,10 @@ pyrightconfig.json
 ####
 
 # .gitignore adicional
+test_report
+temp/*
+config/config.yml
+tools/prompts.txt
+
+# Exceto o arquivo .gitkeep
+!.gitkeep

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "github.copilot.chat.experimental.codeGeneration.instructions": {
+      "description": "Lista de arquivos de instru\u00e7\u00f5es para gera\u00e7\u00e3o de c\u00f3digo",
+      "items": {
+        "properties": {
+          "arquivo": {
+            "description": "Caminho para o arquivo de instru\u00e7\u00f5es",
+            "type": "string"
+          }
+        },
+        "required": [
+          "arquivo"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "github.copilot.chat.experimental.codeGeneration.useInstructionFiles": {
+      "description": "Habilita o uso de arquivos de instru\u00e7\u00f5es para gera\u00e7\u00e3o de c\u00f3digo experimental",
+      "type": "boolean"
+    }
+  },
+  "title": "Copilot Settings",
+  "type": "object"
+}

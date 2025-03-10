@@ -1,8 +1,5 @@
 # py-default-repo
 
-> [!IMPORTANT]  
-> Este arquivo README.md está em construção. Algumas informações podem estar incompletas ou imprecisas no momento, e serão atualizadas conforme o projeto evolui.
-
 Este repositório foi criado com o propósito de servir como uma base replicável para a inicialização de novos projetos. A estrutura e o conteúdo deste README.md foram amplamente inspirados no repositório [myDefaultDataProject](https://github.com/alanceloth/myDefaultDataProject), que desempenhou um papel fundamental na concepção deste projeto.
 
 Para usar esta estrutura de projeto, você precisará seguir os passos abaixo.
