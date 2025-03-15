@@ -31,13 +31,13 @@ lint.unfixable = []      # Permitir todas as correções
 line-length = 100        # Definir o comprimento da linha para 100 caracteres
 target-version = "py312" # Compatível com Python 3.12
 lint.ignore = [
-    "D203",    # one-blank-line-before-class (conflita com D211)
-    "D212",    # multi-line-summary-first-line (conflita com D213)
-    "COM812",  # trailing-comma-missing (conflita com o formatador)
-    "ISC001",  # single-line-implicit-string-concatenation (já corrigido pelo formatador)
-    "G004",    # no-else-return (já corrigido pelo formatador)
-    "S101",    # no-else-raise (Permite o uso de `assert`)
-    "PERF401"
+    "D203",    # Conflito com D211 (linha em branco antes da classe)
+    "D212",    # Conflito com D213 (resumo na primeira linha)
+    "COM812",  # Conflito com formatador (vírgula ausente)
+    "ISC001",  # Já corrigido pelo formatador (concatenação implícita)
+    "G004",    # Já corrigido pelo formatador (no-else-return)
+    "S101",    # Permite `assert`
+    "PERF401"  # Permite o uso de `for-loop` em vez de `list-comprehension`
 ]
 
 # Ordenação automática de imports (substitui o isort)
