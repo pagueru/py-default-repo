@@ -11,51 +11,42 @@ Classes:
 
 import json
 import logging
-import warnings
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import TYPE_CHECKING, Any
+import warnings
 
-from src.common.constypes import PathLike
+if TYPE_CHECKING:
+    from src.common.constypes import PathLike
 
 
 class LoggingManager:
-    """
-    Classe de gerenciamento de logging.
-    """
+    """Classe de gerenciamento de logging."""
 
-    def __init__(self, config: Dict[str, Any]) -> None:
-        """
-        Inicializa a classe LoggerSetup com as configurações fornecidas.
-        """
+    def __init__(self, config: dict[str, Any]) -> None:
+        """Inicializa a classe LoggerSetup com as configurações fornecidas."""
         # Atribui as configurações
         self._assign_config(config)
 
         # Inicializa o logger
         self.logger: logging.Logger = self._define_handlers()
 
-    def _assign_config(self, config: Dict[str, Any]) -> None:
-        """
-        Atribui as configurações do dicionário às variáveis da classe.
-        """
+    def _assign_config(self, config: dict[str, Any]) -> None:
+        """Atribui as configurações do dicionário às variáveis da classe."""
         self.file_enabled: str = config["logging"]["file"]["enabled"]
         self.file_level: str = config["logging"]["file"]["level"]
         self.file_path: PathLike = config["logging"]["file"]["path"]
         self.console_level: str = config["logging"]["console"]["level"]
-        self.supress_list: List[str] = config["logging"]["supress"]
+        self.supress_list: list[str] = config["logging"]["supress"]
 
     def _ensure_path(self, path_str: str) -> Path:
-        """
-        Converte uma string de caminho em um objeto Path e garante que o diretório exista.
-        """
+        """Converte uma string de caminho em um objeto Path e garante que o diretório exista."""
         path: Path = Path(path_str)
         if not path.parent.exists():
             path.parent.mkdir(parents=True, exist_ok=True)
         return path
 
     def _define_handlers(self) -> logging.Logger:
-        """
-        Configura e retorna um logger com handlers para console e arquivo (opcional).
-        """
+        """Configura e retorna um logger com handlers para console e arquivo (opcional)."""
         # Cria o logger com o nome do módulo atual
         custom_logger: logging.Logger = logging.getLogger(__name__)
         custom_logger.setLevel(self.console_level)
@@ -71,7 +62,7 @@ class LoggingManager:
         )
 
         # Handler para console
-        console_handler: logging.StreamHandler = logging.StreamHandler()
+        console_handler: logging.StreamHandler[Any] = logging.StreamHandler()
         console_handler.setLevel(self.console_level)
         console_handler.setFormatter(formatter)
         custom_logger.addHandler(console_handler)
@@ -93,9 +84,7 @@ class LoggingManager:
         return custom_logger
 
     def dump_config(self) -> str:
-        """
-        Retorna a configuração da classe em um JSON dump sem identação.
-        """
+        """Retorna a configuração da classe em um JSON dump sem identação."""
         config_dict = {
             "file_enabled": self.file_enabled,
             "file_level": self.file_level,
@@ -106,11 +95,5 @@ class LoggingManager:
         return json.dumps(config_dict)
 
     def setup(self) -> logging.Logger:
-        """
-        Configura e retorna o logger.
-        """
-        if self.logger is None:
-            raise RuntimeError(
-                "Logger ainda não foi inicializado. Configure-o na 'main.py'."
-            )
+        """Configura e retorna o logger."""
         return self.logger

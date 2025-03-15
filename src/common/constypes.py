@@ -11,10 +11,9 @@ Tipos:
 """
 
 from pathlib import Path
-from typing import List, TypeAlias, Union
 
-PathLike: TypeAlias = Union[str, Path]
+type PathLike = str | Path
 """Tipo que representa um caminho, podendo ser uma string ou um objeto Path."""
 
-PathLikeAndList: TypeAlias = Union[PathLike, List[PathLike]]
+type PathLikeAndList = PathLike | list[PathLike]
 """Tipo que representa um caminho ou uma lista de caminhos (strings ou objetos Path)."""

@@ -13,31 +13,16 @@ class ProjectError(RuntimeError):
     """Exceção personalizada para erros no projeto."""
 
     def __init__(self, message: str):
-        """
-        Inicializa o ProjectError.
-
-        Args:
-            message (str): Mensagem que descreve o erro.
-        """
+        """Inicializa o ProjectError."""
         super().__init__(message)
         self.message = message
 
     def __str__(self) -> str:
-        """
-        Representação da exceção como string.
-
-        Returns:
-            str: Representação da exceção.
-        """
+        """Representação da exceção como string."""
         return f"{self.message}"
 
     def __repr__(self) -> str:
-        """
-        Representação mais detalhada da exceção, útil para debugging.
-
-        Returns:
-            str: Representação detalhada da exceção.
-        """
+        """Representação mais detalhada da exceção, útil para debugging."""
         return f"ProjectError(message: {self.message})"
 
 

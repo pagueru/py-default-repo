@@ -1,3 +1,5 @@
+"""Módulo principal do projeto."""
+
 from src.common.logger import LoggingManager
 from src.common.utils import ProjectUtils
 from src.constants.constants import CONFIG_FILE
@@ -5,7 +7,6 @@ from src.constants.constants import CONFIG_FILE
 
 def main() -> None:
     """Função principal que imprime 'Olá mundo!'."""
-
     # Intancia a classe utilidades do projeto
     project_utils = ProjectUtils()
 

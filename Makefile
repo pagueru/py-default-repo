@@ -38,7 +38,7 @@ start: ## Inicializa a aplicação em produção
 		echo -e "$(WARN) Ambiente virtual não encontrado! Criando..."; \
 	fi
 
-test: ## Executa todos os testes com pytest
+test.all: ## Executa todos os testes com pytest
 	@echo -e "$(INFO) Executando testes..."
 	@if [ -d "tests" ]; then \
 		if [ $(EXEC_MODE) = "run" ]; then \
@@ -86,13 +86,13 @@ test.cobertura.html: ## Executa análise de cobertura e gera relatório em HTML.
 		echo -e "$(WARN) Diretório de testes não encontrado"; \
 	fi
 
-test.lint: ## Verifica a formatação do código
+test.ruff: ## Verifica a formatação do código
 	@echo -e "$(INFO) Verificando formatação do código..."
 	@if [ -d "src" ]; then \
 		if [ $(EXEC_MODE) = run ]; then \
-			poetry run black --check src tests; \
+			poetry run ruff check . --fix; \
 		else \
-			echo -e "$(INFO) Comando em modo debug: poetry run black --check src tests"; \
+			echo -e "$(INFO) Comando em modo debug: poetry run ruff check ."; \
 		fi \
 	else \
 		echo -e "$(WARN) Diretório de código-fonte não encontrado"; \
