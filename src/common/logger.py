@@ -4,9 +4,6 @@ Módulo de gerenciamento de logging.
 Este módulo fornece a classe `LoggingManager` que facilita a configuração e o gerenciamento de
 loggers em um projeto Python. Ele permite configurar handlers de console e arquivo, definir níveis
 de log e suprimir mensagens de aviso específicas.
-
-Classes:
-    LoggingManager: Classe de gerenciamento de logging.
 """
 
 import json

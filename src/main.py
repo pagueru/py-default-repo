@@ -2,7 +2,7 @@
 
 from src.common.logger import LoggingManager
 from src.common.utils import ProjectUtils
-from src.constants.constants import CONFIG_FILE
+from src.constants.constants import GlobalConstants
 
 
 def main() -> None:
@@ -10,8 +10,14 @@ def main() -> None:
     # Intancia a classe utilidades do projeto
     project_utils = ProjectUtils()
 
+    # Instancia a classe GlobalConstants para acessar as propriedades
+    global_constants = GlobalConstants()
+
+    # Define o diretório de início como o diretório atual
+    config_file = global_constants.config_file
+
     # Instancia e configura a classe de logging
-    config_file = project_utils.load_yaml_file(CONFIG_FILE)
+    config_file = project_utils.load_yaml_file(config_file)
     logging_manager = LoggingManager(config_file)
     logger = logging_manager.setup()
 

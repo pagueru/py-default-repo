@@ -15,7 +15,7 @@ help: ## Mostra esta ajuda.
 
 	@grep -E '^[a-zA-Z0-9_.-]+:.*## ' $(firstword $(MAKEFILE_LIST)) | \
 	sed -e 's/\\$$//' -e 's/##//' | \
-	awk -F ': ' '{ printf "  $(CYAN)%-30s$(RESET) %s\n", $$1, $$2 }'
+	awk -F ': ' '{ printf "  $(CYAN)%-20s$(RESET) %s\n", $$1, $$2 }'
 
 	@echo -e ""
 	@echo -e "Para mais informações, veja: $(CYAN)https://github.com/pagueru/py-default-repo$(RESET)"
@@ -98,6 +98,18 @@ test.ruff: ## Verifica a formatação do código
 		echo -e "$(WARN) Diretório de código-fonte não encontrado"; \
 	fi
 
+test.pre-commit: ## Executa o pre-commit para verificar o código
+	@echo -e "$(INFO) Executando pre-commit..."
+	@if [ -d ".git" ]; then \
+		if [ $(EXEC_MODE) = "run" ]; then \
+			pre-commit run --all-files; \
+		else \
+			echo -e "$(INFO) Comando em modo debug: pre-commit run --all-files"; \
+		fi \
+	else \
+		echo -e "$(WARN) Diretório .git não encontrado"; \
+	fi
+
 clean.venv: ## Remove o ambiente virtual do projeto
 	@echo -e "$(INFO) Removendo ambiente virtual..."
 	@if [ -d ".venv" ]; then \
@@ -123,4 +135,12 @@ clean.images: ## Remove todas as imagens Docker relacionadas ao projeto
 	else \
 		echo -e "$(INFO) Comando em modo debug: docker-compose down"; \
 		echo -e "$(INFO) Comando em modo debug: docker rmi -f \$$IMAGES"; \
+	fi
+
+att.copilot.md: ## Atualiza o arquivo de instruções do Copilot
+	@echo -e "$(INFO) Atualizando arquivo de instruções do Copilot..."
+	@if [ $(EXEC_MODE) = "run" ]; then \
+		curl -o .github/copilot-instructions.md https://gist.githubusercontent.com/pagueru/f534bbeec52e88d6984d4594619de4d6/raw/; \
+	else \
+		echo -e "$(INFO) Comando em modo debug: curl -o .github/copilot-instructions.md https://gist.githubusercontent.com/pagueru/f534bbeec52e88d6984d4594619de4d6/raw/"; \
 	fi

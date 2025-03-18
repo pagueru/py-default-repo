@@ -13,13 +13,13 @@ dependencies = [
 ]
 
 [tool.poetry]
+package-mode = false
 requires-poetry = ">=2.0.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.11.0"
 pytest = "^8.3.4"
 pre-commit = "^4.0.1"
-types-pyyaml = "^6.0.12.20241230"
 pytest-cov = "^6.0.0"
 mypy = "^1.15.0"
 
@@ -31,13 +31,15 @@ lint.unfixable = []      # Permitir todas as correções
 line-length = 100        # Definir o comprimento da linha para 100 caracteres
 target-version = "py312" # Compatível com Python 3.12
 lint.ignore = [
-    "D203",    # Conflito com D211 (linha em branco antes da classe)
-    "D212",    # Conflito com D213 (resumo na primeira linha)
-    "COM812",  # Conflito com formatador (vírgula ausente)
-    "ISC001",  # Já corrigido pelo formatador (concatenação implícita)
-    "G004",    # Já corrigido pelo formatador (no-else-return)
-    "S101",    # Permite `assert`
-    "PERF401"  # Permite o uso de `for-loop` em vez de `list-comprehension`
+    "D203",              # Conflito com D211 (linha em branco antes da classe)
+    "D212",              # Conflito com D213 (resumo na primeira linha)
+    "COM812",            # Conflito com formatador (vírgula ausente)
+    "ISC001",            # Já corrigido pelo formatador (concatenação implícita)
+    "G004",              # Já corrigido pelo formatador (no-else-return)
+    "S101",              # Permite o uso de `assert`
+    "PERF401",           # Permite o uso de `for-loop` em vez de `list-comprehension`
+    "T201",              # Permite o uso de `print` em vez de `logging`
+    "ERA001",            # Permite o uso de comentários
 ]
 
 # Ordenação automática de imports (substitui o isort)
@@ -48,21 +50,23 @@ lint.isort.combine-as-imports = true         # Permitir importações combinadas
 quote-style = "double"            # Usar aspas duplas (Black)
 indent-style = "space"            # Indentação com espaços (Black)
 skip-magic-trailing-comma = false # Manter vírgula mágica (Black)
-line-ending = "auto"              # Detectar automaticamente o tipo de quebra de linha (Black)
+line-ending = "auto"              # Detectar o tipo de quebra de linha (Black)
 
 [tool.ruff.lint.pydocstyle]
-convention = "google"           # Exigir docstrings ("numpy" ou "pep257")
+convention = "google"             # Exigir docstrings ("numpy" ou "pep257")
 
 [tool.ruff.lint.flake8-annotations]
-mypy-init-return = true         # Exigir anotações de tipo em __init__ e __new__
-suppress-none-returning = false # Não suprimir erros de retorno None
-allow-star-arg-any = false      # Não permitir *args e **kwargs sem anotações de tipo
+mypy-init-return = true           # Exigir anotações de tipo em __init__ e __new__
+suppress-none-returning = false   # Não suprimir erros de retorno None
+allow-star-arg-any = false        # Não permitir *args e **kwargs sem anotações de tipo
 
 [tool.mypy]
-strict = true                   # Ativa as verificações estritas
+strict = true                     # Ativa as verificações estritas
+ignore_missing_imports = true     # Ignora erros de importação ausente
+disable_error_code = ["import-untyped"]
 
 [tool.pytest.ini_options]
-pythonpath = ["."]              # Adiciona o diretório atual ao PYTHONPATH
+pythonpath = [".", "src"]         # Adiciona o diretório atual ao PYTHONPATH
 
 # Adiciona opções padrão para o pytest
 addopts = [
@@ -71,7 +75,6 @@ addopts = [
     "--cov-report=term-missing:skip-covered",   # Mostra os arquivos com cobertura de código
     "--cov-fail-under=80"                       # Falha se a cobertura de código for menor que 80%
 ]
-
 
 [project.urls]
 repository = "https://github.com/pagueru/py-default-repo"

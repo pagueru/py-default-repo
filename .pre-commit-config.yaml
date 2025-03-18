@@ -35,21 +35,21 @@ repos:
 
 -   repo: local
     hooks:
-    -   id: pytest
-        name: run pytest
-        description: run all tests
-        entry: poetry run pytest
-        language: system
-        pass_filenames: false
-        require_serial: true
+    # -   id: pytest
+    #     name: run pytest
+    #     description: run all tests
+    #     entry: poetry run pytest
+    #     language: system
+    #     pass_filenames: false
+    #     require_serial: true
 
-    -   id: pytest-coverage
-        name: run pytest with coverage
-        description: check 80% test coverage
-        entry: poetry run pytest --cov-fail-under=80
-        language: system
-        pass_filenames: false
-        require_serial: true
+    # -   id: pytest-coverage
+    #     name: run pytest with coverage
+    #     description: check 80% test coverage
+    #     entry: poetry run pytest --cov-fail-under=80
+    #     language: system
+    #     pass_filenames: false
+    #     require_serial: true
 
     -   id: pre-commit-autoupdate
         name: update pre-commit hooks

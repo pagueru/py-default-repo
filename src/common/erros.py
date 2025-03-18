@@ -3,9 +3,6 @@ Módulo de definição de exceções personalizadas para o projeto.
 
 Este módulo contém a definição da classe `ProjectError`, que é uma exceção personalizada
 para representar erros específicos do projeto.
-
-Classes:
-    ProjectError: Exceção personalizada para erros no projeto.
 """
 
 

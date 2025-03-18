@@ -3,9 +3,6 @@ Módulo de utilitários do projeto.
 
 Este módulo fornece a classe `ProjectUtils` que contém métodos para diversas tarefas
 comuns em projetos.
-
-Classes:
-    ProjectUtils: Classe de utilitários do projeto.
 """
 
 from logging import Logger
@@ -45,7 +42,7 @@ class ProjectUtils:
             else:
                 self.logger.info(message)
         else:
-            print(message)  # noqa: T201
+            print(message)
 
     def find_project_root(self) -> Path:
         """Encontra o diretório raiz do projeto a partir do diretório que instancia a classe."""
@@ -93,7 +90,7 @@ class ProjectUtils:
         if value <= 0:
             msg = "O valor deve ser maior que 0."
             raise ValueError(msg)
-        print(char * value)  # noqa: T201
+        print(char * value)
 
     def start_config(self, *, clear_terminal: bool = True) -> None:
         """Limpa o terminal e marca o início do script."""
@@ -101,9 +98,9 @@ class ProjectUtils:
             if clear_terminal:
                 os_name = platform.system().lower()
                 if os_name == "windows":
-                    print("\033c", end="")  # noqa: T201
+                    print("\033c", end="")
                 else:
-                    print("\033c", end="")  # noqa: T201
+                    print("\033c", end="")
             self.terminal_line()
             self.log_msg("Iniciando o script.")
         except RuntimeError as e:

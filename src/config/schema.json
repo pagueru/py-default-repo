@@ -6,7 +6,7 @@
         "console": {
           "properties": {
             "level": {
-              "description": "N\u00edvel de logging para o console",
+              "description": "Nivel de logging para o console",
               "enum": [
                 "DEBUG",
                 "INFO",
@@ -29,7 +29,7 @@
               "type": "boolean"
             },
             "level": {
-              "description": "N\u00edvel de logging para o arquivo",
+              "description": "Nivel de logging para o arquivo",
               "enum": [
                 "DEBUG",
                 "INFO",
@@ -67,7 +67,7 @@
       "type": "object"
     },
     "profile_mode": {
-      "description": "Modos dispon\u00edveis: debug | info",
+      "description": "Modos disponiveis: debug | info",
       "enum": [
         "debug",
         "info"
